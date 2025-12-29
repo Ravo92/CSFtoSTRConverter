@@ -45,18 +45,11 @@ This tool enforces the exact rules expected by the game:
 
 ### Line breaks
 - **No real line breaks inside strings**
-- All line breaks are written as the literal sequence:
-  """
-  \n
-  """
+- All line breaks are written as the literal sequence: \n
 
 ### Quotation marks
 - Quotes inside strings use **CSV-style escaping**
-- A literal quote is written as:
-  """
-  ""
-  """
-- ❌ Backslash escapes ("\"") are **not allowed**
+- A literal quote is written as: ""Quoted Text""
 
 ### Encoding
 - Output encoding is **ANSI / Windows-1252**
