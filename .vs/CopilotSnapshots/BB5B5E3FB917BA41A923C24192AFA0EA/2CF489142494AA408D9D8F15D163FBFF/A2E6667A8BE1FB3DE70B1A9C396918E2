@@ -1,0 +1,310 @@
+﻿using System;
+using System.ComponentModel;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
+
+namespace CSFtoSTR;
+
+public class MainForm : Form
+{
+    private readonly IContainer components;
+
+    private Button GoButton;
+
+    private TextBox InputTextBox;
+
+    private TextBox OutputTextBox;
+
+    private Label label1;
+
+    private Label label2;
+
+    private Button InputButton;
+
+    private Button OutputButton;
+
+    private OpenFileDialog openFileDialog1;
+
+    private SaveFileDialog saveFileDialog1;
+
+    private TextBox textBox1;
+
+    private GroupBox groupBox1;
+
+    private Label label3;
+
+    private ComboBox LBFormatComboBox;
+
+    private TextBox textBox2;
+
+    public MainForm()
+    {
+        System.ComponentModel.ComponentResourceManager resources = new(typeof(CSFtoSTR.MainForm));
+        this.GoButton = new System.Windows.Forms.Button();
+        this.InputTextBox = new System.Windows.Forms.TextBox();
+        this.OutputTextBox = new System.Windows.Forms.TextBox();
+        this.label1 = new System.Windows.Forms.Label();
+        this.label2 = new System.Windows.Forms.Label();
+        this.InputButton = new System.Windows.Forms.Button();
+        this.OutputButton = new System.Windows.Forms.Button();
+        this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+        this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+        this.textBox1 = new System.Windows.Forms.TextBox();
+        this.groupBox1 = new System.Windows.Forms.GroupBox();
+        this.LBFormatComboBox = new System.Windows.Forms.ComboBox();
+        this.label3 = new System.Windows.Forms.Label();
+        this.textBox2 = new System.Windows.Forms.TextBox();
+        this.groupBox1.SuspendLayout();
+        base.SuspendLayout();
+        this.GoButton.Location = new System.Drawing.Point(802, 300);
+        this.GoButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.GoButton.Name = "GoButton";
+        this.GoButton.Size = new System.Drawing.Size(98, 68);
+        this.GoButton.TabIndex = 0;
+        this.GoButton.Text = "Go";
+        this.GoButton.UseVisualStyleBackColor = true;
+        this.GoButton.Click += new System.EventHandler(GoButton_Click);
+        this.InputTextBox.Location = new System.Drawing.Point(90, 18);
+        this.InputTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.InputTextBox.Name = "InputTextBox";
+        this.InputTextBox.ReadOnly = true;
+        this.InputTextBox.Size = new System.Drawing.Size(752, 26);
+        this.InputTextBox.TabIndex = 1;
+        this.OutputTextBox.Location = new System.Drawing.Point(90, 74);
+        this.OutputTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.OutputTextBox.Name = "OutputTextBox";
+        this.OutputTextBox.ReadOnly = true;
+        this.OutputTextBox.Size = new System.Drawing.Size(752, 26);
+        this.OutputTextBox.TabIndex = 2;
+        this.label1.AutoSize = true;
+        this.label1.Location = new System.Drawing.Point(30, 23);
+        this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+        this.label1.Name = "label1";
+        this.label1.Size = new System.Drawing.Size(50, 20);
+        this.label1.TabIndex = 3;
+        this.label1.Text = "Input:";
+        this.label2.AutoSize = true;
+        this.label2.Location = new System.Drawing.Point(18, 78);
+        this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+        this.label2.Name = "label2";
+        this.label2.Size = new System.Drawing.Size(62, 20);
+        this.label2.TabIndex = 4;
+        this.label2.Text = "Output:";
+        this.InputButton.Location = new System.Drawing.Point(854, 18);
+        this.InputButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.InputButton.Name = "InputButton";
+        this.InputButton.Size = new System.Drawing.Size(46, 35);
+        this.InputButton.TabIndex = 5;
+        this.InputButton.Text = "...";
+        this.InputButton.UseVisualStyleBackColor = true;
+        this.InputButton.Click += new System.EventHandler(InputButton_Click);
+        this.OutputButton.Location = new System.Drawing.Point(854, 71);
+        this.OutputButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.OutputButton.Name = "OutputButton";
+        this.OutputButton.Size = new System.Drawing.Size(46, 35);
+        this.OutputButton.TabIndex = 6;
+        this.OutputButton.Text = "...";
+        this.OutputButton.UseVisualStyleBackColor = true;
+        this.OutputButton.Click += new System.EventHandler(OutputButton_Click);
+        this.openFileDialog1.FileName = "openFileDialog1";
+        this.openFileDialog1.Filter = "CSF files (*.csf)|*.csf";
+        this.saveFileDialog1.Filter = "STR files (*.str)|*.str";
+        this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+        this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+        this.textBox1.Location = new System.Drawing.Point(55, 442);
+        this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.textBox1.Multiline = true;
+        this.textBox1.Name = "textBox1";
+        this.textBox1.Size = new System.Drawing.Size(746, 33);
+        this.textBox1.TabIndex = 7;
+        this.textBox1.Text = "Got an error? Send the CSF file to: 1738creations@gmail.com with details of the error.";
+        this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+        this.groupBox1.Controls.Add(this.LBFormatComboBox);
+        this.groupBox1.Controls.Add(this.label3);
+        this.groupBox1.Location = new System.Drawing.Point(90, 132);
+        this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.groupBox1.Name = "groupBox1";
+        this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.groupBox1.Size = new System.Drawing.Size(754, 98);
+        this.groupBox1.TabIndex = 9;
+        this.groupBox1.TabStop = false;
+        this.groupBox1.Text = "Options";
+        this.LBFormatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        this.LBFormatComboBox.FormattingEnabled = true;
+        this.LBFormatComboBox.Items.AddRange(new object[3] { "(EA) vertical lines: |", "(escaped) \\n", "(literal) a visual line break" });
+        this.LBFormatComboBox.Location = new System.Drawing.Point(201, 35);
+        this.LBFormatComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.LBFormatComboBox.Name = "LBFormatComboBox";
+        this.LBFormatComboBox.Size = new System.Drawing.Size(355, 28);
+        this.LBFormatComboBox.TabIndex = 1;
+        this.label3.AutoSize = true;
+        this.label3.Location = new System.Drawing.Point(28, 40);
+        this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+        this.label3.Name = "label3";
+        this.label3.Size = new System.Drawing.Size(163, 20);
+        this.label3.TabIndex = 0;
+        this.label3.Text = "Line break formatting:";
+        this.textBox2.BackColor = System.Drawing.SystemColors.Control;
+        this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+        this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25f, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+        this.textBox2.Location = new System.Drawing.Point(22, 246);
+        this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        this.textBox2.Multiline = true;
+        this.textBox2.Name = "textBox2";
+        this.textBox2.ReadOnly = true;
+        this.textBox2.Size = new System.Drawing.Size(771, 171);
+        this.textBox2.TabIndex = 8;
+        this.textBox2.Text = resources.GetString("textBox2.Text");
+        base.AutoScaleDimensions = new System.Drawing.SizeF(9f, 20f);
+        base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        base.ClientSize = new System.Drawing.Size(918, 489);
+        base.Controls.Add(this.groupBox1);
+        base.Controls.Add(this.textBox2);
+        base.Controls.Add(this.textBox1);
+        base.Controls.Add(this.OutputButton);
+        base.Controls.Add(this.InputButton);
+        base.Controls.Add(this.label2);
+        base.Controls.Add(this.label1);
+        base.Controls.Add(this.OutputTextBox);
+        base.Controls.Add(this.InputTextBox);
+        base.Controls.Add(this.GoButton);
+        base.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+        base.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+        base.Name = "MainForm";
+        base.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+        this.Text = "CSF to STR (v0.9.4)";
+        base.Load += new System.EventHandler(MainForm_Load);
+        this.groupBox1.ResumeLayout(false);
+        this.groupBox1.PerformLayout();
+        base.ResumeLayout(false);
+        base.PerformLayout();
+    }
+
+    private void GoButton_Click(object sender, EventArgs e)
+    {
+        if (!File.Exists(InputTextBox.Text))
+        {
+            MessageBox.Show("Can't find input file");
+            return;
+        }
+        if (InputTextBox.Text == "")
+        {
+            MessageBox.Show("Select an output file");
+            return;
+        }
+        using (StreamWriter streamWriter = new(OutputTextBox.Text))
+        {
+            using BinaryReader binaryReader = new(File.Open(InputTextBox.Text, FileMode.Open));
+            int count = 24;
+            binaryReader.ReadBytes(count);
+            binaryReader.ReadByte();
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
+            {
+                binaryReader.ReadBytes(7);
+                int num = binaryReader.ReadByte() + 1;
+                binaryReader.ReadBytes(3);
+
+                // Safe: read raw bytes and map deterministically to chars.
+                int toRead = Math.Max(0, num - 1);
+                byte[] raw = binaryReader.ReadBytes(toRead);
+                var sb = new StringBuilder(raw.Length);
+                // Option A (default here): 1:1 mapping byte -> Unicode code point U+00xx
+                for (int k = 0; k < raw.Length; k++)
+                {
+                    sb.Append((char)raw[k]);
+                }
+                // If you know the file uses a specific code page, replace above with:
+                // sb.Append(Encoding.GetEncoding(1252).GetString(raw));
+
+                string text = sb.ToString();
+
+                streamWriter.WriteLine(text);
+                binaryReader.ReadByte();
+                if (binaryReader.ReadByte() == 76)
+                {
+                    binaryReader.BaseStream.Position--;
+                    streamWriter.WriteLine("\"\"");
+                    streamWriter.WriteLine("END");
+                    streamWriter.WriteLine("");
+                    continue;
+                }
+                binaryReader.ReadBytes(2);
+                binaryReader.ReadBytes(2);
+                string text2 = "";
+                int num2 = 0;
+                while (true)
+                {
+                    num2++;
+                    int num3;
+                    try
+                    {
+                        num3 = binaryReader.ReadByte();
+                    }
+                    catch (EndOfStreamException)
+                    {
+                        break;
+                    }
+                    switch (num3)
+                    {
+                        case 11:
+                            text2 += " superiority";
+                            while (binaryReader.ReadByte() != 32)
+                            {
+                            }
+                            break;
+                        default:
+                            {
+                                int num4 = binaryReader.ReadByte();
+
+                                ushort word = (ushort)((255 - num4) << 8 | (255 - num3));
+                                if (char.IsSurrogate((char)word))
+                                    text2 += '\uFFFD';
+                                else
+                                    text2 += (char)word;
+                                continue;
+                            }
+                        case 32:
+                            break;
+                    }
+                    break;
+                }
+                streamWriter.WriteLine("\"" + text2 + "\"");
+                streamWriter.WriteLine("END");
+                streamWriter.WriteLine("");
+            }
+        }
+        MessageBox.Show("Done");
+    }
+
+    private void InputButton_Click(object sender, EventArgs e)
+    {
+        if (openFileDialog1.ShowDialog() == DialogResult.OK)
+        {
+            InputTextBox.Text = openFileDialog1.FileName;
+        }
+    }
+
+    private void OutputButton_Click(object sender, EventArgs e)
+    {
+        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+        {
+            OutputTextBox.Text = saveFileDialog1.FileName;
+        }
+    }
+
+    private void MainForm_Load(object sender, EventArgs e)
+    {
+        LBFormatComboBox.SelectedIndex = 0;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && components != null)
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+}
