@@ -33,8 +33,8 @@ while preserving all formatting rules required by the original parser.
 
 Each record is written in the engine’s native string format:
 
->CONTROLBAR:ToolTipConstructMenFarm
->"Generates resources depending on the available terrain\nIncreases command point limit by 50"
+>CONTROLBAR:ToolTipConstructMenFarm  
+>"Generates resources depending on the available terrain\nIncreases command point limit by 50"  
 >END
 
 ---
