@@ -4,9 +4,9 @@
 (commonly known as **CSF**) into human-readable **".str" files** that are fully compatible with the game engine.
 
 Supportet games:
-[The Lord of the Rings™: Battle for Middle Earth™](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Battle_for_Middle-earth)
-[The Lord of the Rings™: Battle for Middle Earth II™](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Battle_for_Middle-earth_II)
-[The Lord of the Rings™: The Battle for Middle-earth II™: The Rise of the Witch-king™](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Battle_for_Middle-earth_II:_The_Rise_of_the_Witch-king)
+[The Lord of the Rings™: Battle for Middle Earth™](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Battle_for_Middle-earth) 
+[The Lord of the Rings™: Battle for Middle Earth II™](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Battle_for_Middle-earth_II) 
+[The Lord of the Rings™: The Battle for Middle-earth II™: The Rise of the Witch-king™](https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Battle_for_Middle-earth_II:_The_Rise_of_the_Witch-king) 
 
 The generated ".str" files can be edited safely and loaded by the game **without crashes**,  
 while preserving all formatting rules required by the original parser.
