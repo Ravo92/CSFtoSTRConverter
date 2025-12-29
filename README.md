@@ -13,7 +13,7 @@ while preserving all formatting rules required by the original parser.
 
 ---
 
-## ✨ What This Tool Does
+## What This Tool Does
 
 - Reads the game’s **binary string format** ("LBL" / "RTS" records)
 - Correctly decodes:
@@ -29,7 +29,7 @@ while preserving all formatting rules required by the original parser.
 
 ---
 
-## 📄 Output Format (".str")
+## Output Format (".str")
 
 Each record is written in the engine’s native string format:
 
@@ -39,7 +39,7 @@ Each record is written in the engine’s native string format:
 
 ---
 
-## 📌 Important Format Rules
+## Important Format Rules
 
 This tool enforces the exact rules expected by the game:
 
@@ -57,7 +57,7 @@ This tool enforces the exact rules expected by the game:
 
 ---
 
-## 🔒 Why This Tool Is Necessary
+## Why This Tool Is Necessary
 
 The game’s string parser is extremely strict:
 
@@ -68,7 +68,7 @@ The game’s string parser is extremely strict:
 
 ---
 
-## 🧠 How It Works (Internals)
+## How It Works (Internals)
 
 ### Binary format (simplified)
 
@@ -95,7 +95,7 @@ byte[] value (UTF-16LE, bytewise inverted)
 
 ---
 
-## ✅ Guarantees
+## Expected behaviour
 
 - Output ".str" files:
   - load correctly in-game
@@ -105,7 +105,7 @@ byte[] value (UTF-16LE, bytewise inverted)
 
 ---
 
-## 🖥 Requirements
+## Requirements
 
 - Windows
 - .NET 10 (WinForms)
@@ -113,7 +113,7 @@ byte[] value (UTF-16LE, bytewise inverted)
 
 ---
 
-## ⚠ Notes
+## Notes
 
 - This tool currently focuses on **binary → ".str" export**
 - The ".str" output is intentionally conservative and parser-safe
