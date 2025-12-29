@@ -45,7 +45,7 @@ This tool enforces the exact rules expected by the game:
 
 ### Line breaks
 - **No real line breaks inside strings**
-- All line breaks are written as the literal sequence: \n
+- All line breaks are written as the literal sequence: **\n**
 
 ### Quotation marks
 - Quotes inside strings use **CSV-style escaping**
@@ -61,7 +61,7 @@ This tool enforces the exact rules expected by the game:
 
 The game’s string parser is extremely strict:
 
-- A single unescaped """ inside a string can fail the game's ability to proberly display strings
+- A single unescaped quote sign inside a string can fail the game's ability to proberly display strings
 - UTF-8 multi-byte characters break internal length assumptions
 - Real line breaks inside quoted strings are invalid
 - This tool removes the need of manually converting the CSF files via Hex-Editor (more user friendly)
@@ -72,17 +72,15 @@ The game’s string parser is extremely strict:
 
 ### Binary format (simplified)
 
-"""
-" LBL"
-uint32 labelId
-uint32 keyLength
-byte[] key (Windows-1252)
+"LBL"  
+uint32 labelId  
+uint32 keyLength  
+byte[] key (Windows-1252)  
 
-optional:
-" RTS"
-uint32 valueLength (UTF-16 code units)
-byte[] value (UTF-16LE, bytewise inverted)
-"""
+optional:  
+"RTS"  
+uint32 valueLength (UTF-16 code units)  
+byte[] value (UTF-16LE, bytewise inverted)  
 
 ### Conversion steps
 
