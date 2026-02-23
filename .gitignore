@@ -55,3 +55,4 @@ nunit-*.xml
 
 # VS folder
 .vs
+CSFtoSTRConverter.csproj.user
